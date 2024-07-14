@@ -3,6 +3,7 @@
         "gonic",
         "Infof",
         "logrus",
+        "SETTINGSERROR",
         "sirupsen"
     ]
 }

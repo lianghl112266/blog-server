@@ -1,9 +1,11 @@
 package settingsApi
 
-import "github.com/gin-gonic/gin"
+import (
+	utils "blogServer/utils/resp"
+
+	"github.com/gin-gonic/gin"
+)
 
 func (Api) SettingsInfoView(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"msg": "xxx",
-	})
+	utils.FailWithCode(utils.SETTINGSERROR, c)
 }
