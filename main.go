@@ -2,10 +2,12 @@ package main
 
 import (
 	"blogServer/core"
+	"blogServer/flag"
 	"blogServer/global"
 	"blogServer/routers"
 	"fmt"
 	"log"
+	"os"
 )
 
 func init() {
@@ -28,11 +30,18 @@ func init() {
 		global.Log.Infof("db init success.")
 	}
 
+	option := flag.Parse()
+	if flag.IsWebStop(option) {
+		flag.SwitchOption(option)
+		os.Exit(1)
+	}
 }
 
 func main() {
 	r := routers.InitRouter()
 	addr := fmt.Sprintf("%s:%d", global.Config.System.Host, global.Config.System.Port)
 	global.Log.Infof("running on %s", addr)
-	r.Run(addr)
+	if err := r.Run(addr); err != nil {
+		global.Log.Errorf(err.Error())
+	}
 }
