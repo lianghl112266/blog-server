@@ -28,6 +28,8 @@ func (Api) SettingsInfoView(c *gin.Context) {
 		utils.OkWithData(global.Config.Jwt, c)
 	case "site":
 		utils.OkWithData(global.Config.SiteInfo, c)
+	case "email":
+		utils.OkWithData(global.Config.Email, c)
 	default:
 		utils.FailWithCode(utils.ARGUMENTERROR, c)
 		global.Log.Errorf("request argument error")
