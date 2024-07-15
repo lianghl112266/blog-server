@@ -2,7 +2,7 @@ package settingsApi
 
 import (
 	"blogServer/global"
-	utils "blogServer/utils/resp"
+	"blogServer/utils"
 
 	"github.com/gin-gonic/gin"
 )

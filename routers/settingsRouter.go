@@ -13,7 +13,7 @@ func settingsRouter() {
 		rgPublicSettings := rgPublic.Group("settings")
 		{
 			rgPublicSettings.GET("/:name", Api.SettingsInfoView)
-			rgPublicSettings.POST("/:name", Api.SettingsInfoUpdate)
+			rgPublicSettings.PUT("/:name", Api.SettingsInfoUpdate)
 		}
 
 	})

@@ -11,9 +11,12 @@
         "logrus",
         "olivere",
         "primarykey",
+        "qiniu",
         "SETTINGSERROR",
         "sirupsen",
         "smallint",
+        "Warnf",
+        "webp",
         "Wechat"
     ]
 }

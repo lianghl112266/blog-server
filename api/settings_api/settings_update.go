@@ -3,7 +3,7 @@ package settingsApi
 import (
 	"blogServer/core"
 	"blogServer/global"
-	utils "blogServer/utils/resp"
+	"blogServer/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,12 +25,11 @@ func (Api) SettingsInfoUpdate(c *gin.Context) {
 	err := c.ShouldBindUri(&settingsInfo)
 	if err != nil {
 		utils.FailWithCode(utils.ARGUMENTERROR, c)
-		global.Log.Errorf("request argument error")
+		global.Log.Errorf(err.Error())
 		return
 	}
 
 	if _, ok := mp[settingsInfo.Name]; !ok {
-		global.Log.Errorf(err.Error())
 		utils.FailWithCode(utils.ARGUMENTERROR, c)
 		return
 	}
@@ -44,8 +43,8 @@ func (Api) SettingsInfoUpdate(c *gin.Context) {
 
 	err = core.SetYaml()
 	if err != nil {
-		utils.FailWithMessage("unknown mistake", c)
-		global.Log.Errorf("unknown mistake")
+		utils.FailWithMessage(err.Error(), c)
+		global.Log.Errorf(err.Error())
 		return
 	}
 	global.Log.Infof("yaml set successful")

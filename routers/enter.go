@@ -24,6 +24,7 @@ func RegisterRoute(fn IFnRegisterRoute) {
 // Initialize base platform routes
 func initBasePlatformRoutes() {
 	settingsRouter()
+	imageRouter()
 }
 
 func InitRouter() *gin.Engine {

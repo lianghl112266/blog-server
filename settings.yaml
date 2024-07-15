@@ -14,7 +14,8 @@ logger:
 system:
   host: 0.0.0.0
   port: 8080
-  env: debug
+  #env: debug
+  env: release
 site_info:
   created_at: "2024-7-14"
   bei_an: 陕ICP备2021010653号-3
@@ -49,7 +50,7 @@ email:
   host: smtp.qq.com
   port: 465
   user: 2879343819@qq.com
-  password: 1234
+  password: "1234"
   default_from_email: lianghl
   use_ssl: true
   user_tls: false
@@ -57,3 +58,6 @@ jwt:
   secret: xxx
   expires: 48
   issuer: xx
+upload:
+  size: 5
+  path: upload/
