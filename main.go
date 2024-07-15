@@ -13,6 +13,8 @@ import (
 func init() {
 	var err error
 
+	option := flag.Parse()
+
 	if err = core.InitConf(); err != nil {
 		log.Panicln(err)
 		panic(err)
@@ -30,7 +32,6 @@ func init() {
 		global.Log.Infof("db init success.")
 	}
 
-	option := flag.Parse()
 	if flag.IsWebStop(option) {
 		flag.SwitchOption(option)
 		os.Exit(1)

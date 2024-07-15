@@ -6,7 +6,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func settingsRouter(r *gin.RouterGroup) {
-	api := api.ApiGroupApp.SettingsApi
-	r.GET("", api.SettingsInfoView)
+func settingsRouter() {
+	RegisterRoute(func(rgPublic *gin.RouterGroup, rgAuth *gin.RouterGroup) {
+		Api := api.ApiGroupApp.SettingsApi
+		rgPublicSettings := rgPublic.Group("settings")
+		{
+			rgPublicSettings.GET("", Api.SettingsInfoView)
+			rgPublicSettings.POST("", Api.SettingsInfoUpdate)
+		}
+
+	})
 }

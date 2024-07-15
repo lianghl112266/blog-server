@@ -28,5 +28,5 @@ func MakeMigrations() {
 		global.Log.Error("[ error ] 生成数据库表结构失败")
 		return
 	}
-	global.Log.Info("[ success ] 生成数据库表结构成功！")
+	global.Log.Info("[ success ] 生成数据库表结构成功")
 }
