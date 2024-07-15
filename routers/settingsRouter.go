@@ -9,10 +9,11 @@ import (
 func settingsRouter() {
 	RegisterRoute(func(rgPublic *gin.RouterGroup, rgAuth *gin.RouterGroup) {
 		Api := api.ApiGroupApp.SettingsApi
+
 		rgPublicSettings := rgPublic.Group("settings")
 		{
-			rgPublicSettings.GET("", Api.SettingsInfoView)
-			rgPublicSettings.POST("", Api.SettingsInfoUpdate)
+			rgPublicSettings.GET("/:name", Api.SettingsInfoView)
+			rgPublicSettings.POST("/:name", Api.SettingsInfoUpdate)
 		}
 
 	})
